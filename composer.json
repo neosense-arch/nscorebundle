@@ -50,7 +50,6 @@
 		"neosense/news-bundle":                 "1.1.*",
 		"neosense/pages-bundle":                "1.1.*",
 		"neosense/properties-bundle":           "1.0.*",
-		"neosense/routing-bundle":              "1.0.*",
 		"neosense/search-bundle":               "1.1.*",
 		"neosense/shop-bundle":                 "1.1.*",
 		"neosense/user-bundle":                 "1.1.*"
