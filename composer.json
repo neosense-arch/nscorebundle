@@ -44,7 +44,7 @@
 		"neosense/admin-bundle":                "1.2.*",
 		"neosense/cache-bundle":                "1.0.*",
 		"neosense/catalog-bundle":              "1.4.*",
-		"neosense/cms-bundle":                  "1.2.*",
+		"neosense/cms-bundle":                  "1.4.*",
 		"neosense/deploy-bundle":               "1.1.*",
 		"neosense/documents-bundle":            "1.1.*",
 		"neosense/feedback-bundle":             "1.0.*",

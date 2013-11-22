@@ -2,6 +2,20 @@
 
 namespace NS\CoreBundle;
 
+use NS\AdminBundle\NSAdminBundle;
+use NS\CacheBundle\NSCacheBundle;
+use NS\CatalogBundle\NSCatalogBundle;
+use NS\CmsBundle\NSCmsBundle;
+use NS\DeployBundle\NSDeployBundle;
+use NS\DocumentsBundle\NSDocumentsBundle;
+use NS\FeedbackBundle\NSFeedbackBundle;
+use NS\GalleryBundle\NSGalleryBundle;
+use NS\NewsBundle\NSNewsBundle;
+use NS\PropertiesBundle\NSPropertiesBundle;
+use NS\RoutingBundle\NSRoutingBundle;
+use NS\SearchBundle\NSSearchBundle;
+use NS\ShopBundle\NSShopBundle;
+use NS\UserBundle\NSUserBundle;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
@@ -20,7 +34,7 @@ abstract class CoreKernel extends Kernel
 	 */
 	public function registerBundles()
 	{
-		$bundles = array(
+		$bundles = [
 			new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
 			new \Symfony\Bundle\SecurityBundle\SecurityBundle(),
 			new \Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -42,21 +56,22 @@ abstract class CoreKernel extends Kernel
 			new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 			new \Liuggio\ExcelBundle\LiuggioExcelBundle(),
 
-			new \NS\AdminBundle\NSAdminBundle(),
-			new \NS\CatalogBundle\NSCatalogBundle(),
-			new \NS\CoreBundle\NSCoreBundle(),
-			new \NS\CmsBundle\NSCmsBundle(),
-			new \NS\DeployBundle\NSDeployBundle(),
-			new \NS\DocumentsBundle\NSDocumentsBundle(),
-			new \NS\FeedbackBundle\NSFeedbackBundle(),
-			new \NS\GalleryBundle\NSGalleryBundle(),
-			new \NS\NewsBundle\NSNewsBundle(),
-			new \NS\PropertiesBundle\NSPropertiesBundle(),
-			new \NS\RoutingBundle\NSRoutingBundle(),
-			new \NS\SearchBundle\NSSearchBundle(),
-			new \NS\ShopBundle\NSShopBundle(),
-			new \NS\UserBundle\NSUserBundle(),
-		);
+			new NSAdminBundle(),
+			new NSCacheBundle(),
+			new NSCatalogBundle(),
+			new NSCoreBundle(),
+			new NSCmsBundle(),
+			new NSDeployBundle(),
+			new NSDocumentsBundle(),
+			new NSFeedbackBundle(),
+			new NSGalleryBundle(),
+			new NSNewsBundle(),
+			new NSPropertiesBundle(),
+			new NSRoutingBundle(),
+			new NSSearchBundle(),
+			new NSShopBundle(),
+			new NSUserBundle(),
+		];
 
 		if (in_array($this->getEnvironment(), array('dev', 'test'))) {
 			$bundles[] = new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle();
