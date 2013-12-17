@@ -34,7 +34,7 @@ abstract class CoreKernel extends Kernel
 	 */
 	public function registerBundles()
 	{
-		$bundles = [
+		$bundles = array(
 			new \Symfony\Bundle\FrameworkBundle\FrameworkBundle(),
 			new \Symfony\Bundle\SecurityBundle\SecurityBundle(),
 			new \Symfony\Bundle\TwigBundle\TwigBundle(),
@@ -71,7 +71,7 @@ abstract class CoreKernel extends Kernel
 			new NSSearchBundle(),
 			new NSShopBundle(),
 			new NSUserBundle(),
-		];
+		);
 
 		if (in_array($this->getEnvironment(), array('dev', 'test'))) {
 			$bundles[] = new \Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle();
