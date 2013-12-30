@@ -1,8 +1,15 @@
 parameters:
-    ns_core.service.version.class: 'NS\CoreBundle\Service\VersionService'
-    ns_core.service.version.file:  'version.txt'
+    ns_core.service.version.class:        'NS\CoreBundle\Service\VersionService'
+    ns_core.service.version.file:         'version.txt'
+    ns_core.twig.extension.version.class: 'NS\CoreBundle\Twig\Extension\VersionExtension'
 
 services:
     ns_core.service.version:
         class: %ns_core.service.version.class%
         arguments: [%ns_core.service.version.file%]
+
+    ns_core.twig.extension.version:
+        class: %ns_core.twig.extension.version.class%
+        arguments: [ @ns_core.service.version ]
+        tags:
+            - { name: twig.extension }
