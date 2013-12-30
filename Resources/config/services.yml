@@ -1,0 +1,8 @@
+parameters:
+    ns_core.service.version.class: 'NS\CoreBundle\Service\VersionService'
+    ns_core.service.version.file:  'version.txt'
+
+services:
+    ns_core.service.version:
+        class: %ns_core.service.version.class%
+        arguments: [%ns_core.service.version.file%]
