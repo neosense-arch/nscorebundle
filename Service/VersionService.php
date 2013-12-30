@@ -12,11 +12,6 @@ class VersionService
 	private $versionFileName;
 
 	/**
-	 * @var string
-	 */
-	private $version;
-
-	/**
 	 * @param string $versionFileName
 	 */
 	public function __construct($versionFileName)
@@ -32,24 +27,22 @@ class VersionService
 	 */
 	public function getVersion()
 	{
-		if (is_null($this->version)) {
-			$fileName = realpath(__DIR__ . '/../Resources') . '/' . $this->versionFileName;
+		$fileName = realpath(__DIR__ . '/../Resources') . '/' . $this->versionFileName;
 
-			if (!file_exists($fileName)) {
-				throw new \Exception("Version file '{$fileName}' wasn't found");
-			}
-			if (!is_readable($fileName)) {
-				throw new \Exception("Version file '{$fileName}' is not readable");
-			}
-
-			$this->version = file_get_contents($fileName);
-
-			if ($this->version == '') {
-				throw new \Exception("Version file '{$fileName}' is empty");
-			}
+		if (!file_exists($fileName)) {
+			throw new \Exception("Version file '{$fileName}' wasn't found");
+		}
+		if (!is_readable($fileName)) {
+			throw new \Exception("Version file '{$fileName}' is not readable");
 		}
 
-		return $this->version;
+		$version = file_get_contents($fileName);
+
+		if ($version === '') {
+			throw new \Exception("Version file '{$fileName}' is empty");
+		}
+
+		return $version;
 	}
 
 	/**
@@ -80,5 +73,31 @@ class VersionService
 	public function isVersionCorrect()
 	{
 		return $this->getVersion() === $this->getGitVersion();
+	}
+
+	/**
+	 * @throws \Exception
+	 */
+	public function syncVersion()
+	{
+		$this->setVersion($this->getGitVersion());
+	}
+
+	/**
+	 * @param $version
+	 * @throws \Exception
+	 */
+	public function setVersion($version)
+	{
+		$fileName = realpath(__DIR__ . '/../Resources') . '/' . $this->versionFileName;
+
+		if (!file_exists($fileName)) {
+			throw new \Exception("Version file '{$fileName}' wasn't found");
+		}
+		if (!is_writable($fileName)) {
+			throw new \Exception("Version file '{$fileName}' is not writable");
+		}
+
+		file_put_contents($fileName, $version);
 	}
 }
