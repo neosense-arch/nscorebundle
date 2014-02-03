@@ -54,6 +54,7 @@
         "neosense/properties-bundle": "1.0.*",
         "neosense/routing-bundle": "1.2.*",
         "neosense/search-bundle": "1.1.*",
+        "neosense/seo-bundle": "1.0.*",
         "neosense/shop-bundle": "1.3.*",
         "neosense/user-bundle": "1.3.*"
     },

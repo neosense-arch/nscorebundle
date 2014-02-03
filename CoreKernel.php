@@ -14,6 +14,7 @@ use NS\NewsBundle\NSNewsBundle;
 use NS\PropertiesBundle\NSPropertiesBundle;
 use NS\RoutingBundle\NSRoutingBundle;
 use NS\SearchBundle\NSSearchBundle;
+use NS\SeoBundle\NSSeoBundle;
 use NS\ShopBundle\NSShopBundle;
 use NS\UserBundle\NSUserBundle;
 use Symfony\Component\HttpKernel\Kernel;
@@ -69,6 +70,7 @@ abstract class CoreKernel extends Kernel
 			new NSPropertiesBundle(),
 			new NSRoutingBundle(),
 			new NSSearchBundle(),
+            new NSSeoBundle(),
 			new NSShopBundle(),
 			new NSUserBundle(),
 		);
