@@ -1,0 +1,27 @@
+ns_cms:
+    resource: "@NSCmsBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ns_admin:
+    resource: "@NSAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ns_catalog:
+    resource: "@NSCatalogBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ns_shop:
+    resource: "@NSShopBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ns_feedback:
+    resource: "@NSFeedbackBundle/Resources/config/routing.yml"
+    prefix:   /
+
+fos_user_security:
+    resource: "@FOSUserBundle/Resources/config/routing/security.xml"
+    prefix:   /admin
+
+_imagine:
+    resource: .
+    type:     imagine
