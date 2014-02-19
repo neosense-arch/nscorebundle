@@ -35,18 +35,36 @@ trsteel_ckeditor:
 
 # FK ElFinder Bundle config
 fm_elfinder:
+    editor: ckeditor
     connector:
         roots:
             documents:
                 driver: LocalFileSystem
                 path: 'upload/documents'
-                upload_allow: ['image/png', 'image/jpg', 'image/jpeg', 'application/vnd.ms-excel']
+                upload_allow:
+                    - 'image/png'
+                    - 'image/jpg'
+                    - 'image/jpeg'
+                    - 'application/msword'
+                    - 'application/vnd.ms-excel'
+                    - 'application/vnd.ms-excel.addin.macroEnabled.12'
+                    - 'application/vnd.ms-excel.sheet.binary.macroEnabled.12'
+                    - 'application/vnd.ms-powerpoint'
+                    - 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'
+                    - 'application/vnd.openxmlformats-officedocument.spreadsheetml.template'
+                    - 'application/vnd.openxmlformats-officedocument.presentationml.template'
+                    - 'application/vnd.openxmlformats-officedocument.presentationml.slideshow'
+                    - 'application/vnd.openxmlformats-officedocument.presentationml.presentation'
+                    - 'application/vnd.openxmlformats-officedocument.presentationml.slide'
+                    - 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'
+                    - 'application/vnd.openxmlformats-officedocument.wordprocessingml.template'
+                    - 'application/pdf'
                 upload_deny: ['all']
                 upload_max_size: 1G
             images:
                 driver: LocalFileSystem
                 path: 'upload/images'
-                upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                upload_allow: ['image/png', 'image/jpg', 'image/jpeg', 'image/gif']
                 upload_deny: ['all']
                 upload_max_size: 10M
 
