@@ -1,0 +1,28 @@
+1. Modify config.yml import section:
+    add:
+        - { resource: @NSCoreBundle/Resources/config/core-config.yml }
+    remove:
+        - { resource: security.yml }
+        ns_properties
+        ns_feedback
+        stfalcon_tinymce
+        knp_paginator
+        mopa_bootstrap
+        stof_doctrine_extensions
+        fos_user
+        swiftmailer
+        doctrine
+        twig
+        assetic
+        framework
+
+2. Remove security.yml at all
+
+3. Modify routing.yml clear common entries, add this + custom project bundles' routes:
+    ns_core:
+        resource: "@NSCoreBundle/Resources/config/core-routing.yml"
+        prefix:   /
+
+4. Create directories (for ElFinder):
+    - web/upload/documents
+    - web/upload/images

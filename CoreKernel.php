@@ -2,6 +2,7 @@
 
 namespace NS\CoreBundle;
 
+use FM\ElfinderBundle\FMElfinderBundle;
 use NS\AdminBundle\NSAdminBundle;
 use NS\CacheBundle\NSCacheBundle;
 use NS\CatalogBundle\NSCatalogBundle;
@@ -20,6 +21,7 @@ use NS\UserBundle\NSUserBundle;
 use Symfony\Component\HttpKernel\Kernel;
 use Symfony\Component\Config\Loader\LoaderInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
+use Trsteel\CkeditorBundle\TrsteelCkeditorBundle;
 
 /**
  * Class CoreKernel
@@ -56,6 +58,8 @@ abstract class CoreKernel extends Kernel
 			new \Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
 			new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 			new \Liuggio\ExcelBundle\LiuggioExcelBundle(),
+            new TrsteelCkeditorBundle(),
+            new FMElfinderBundle(),
 
 			new NSAdminBundle(),
 			new NSCacheBundle(),

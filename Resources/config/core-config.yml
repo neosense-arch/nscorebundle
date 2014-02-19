@@ -1,0 +1,125 @@
+imports:
+    - { resource: 'core-security.yml' }
+    - { resource: 'core-legacy.yml' }
+
+# Framework config
+framework:
+    secret:          %secret%
+    router:
+        resource: "%kernel.root_dir%/config/routing.yml"
+        strict_requirements: %kernel.debug%
+    form:            true
+    csrf_protection: true
+    validation:      { enable_annotations: true }
+    templating:      { engines: ['twig'] } #assets_version: SomeVersionScheme
+    default_locale:  %locale%
+    session:         ~
+    translator:      ~
+
+# Assetic Configuration
+assetic:
+    debug:          %kernel.debug%
+    use_controller: true
+    bundles:        [ NSAdminBundle, MopaBootstrapBundle, FMElfinderBundle ]
+    read_from:      "%kernel.root_dir%/../web"
+    write_to:       "%kernel.root_dir%/../web"
+    filters:
+        cssrewrite: ~
+
+# Trsteel CKEditor Bundle config
+trsteel_ckeditor:
+    transformers: []
+    filebrowser_image_browse_url:
+        route: elfinder
+    extra_allowed_content: 'script iframe'
+
+# FK ElFinder Bundle config
+fm_elfinder:
+    connector:
+        roots:
+            documents:
+                driver: LocalFileSystem
+                path: 'upload/documents'
+                upload_allow: ['image/png', 'image/jpg', 'image/jpeg', 'application/vnd.ms-excel']
+                upload_deny: ['all']
+                upload_max_size: 1G
+            images:
+                driver: LocalFileSystem
+                path: 'upload/images'
+                upload_allow: ['image/png', 'image/jpg', 'image/jpeg']
+                upload_deny: ['all']
+                upload_max_size: 10M
+
+# KNP Paginator Bundle config
+knp_paginator:
+    page_range: 5                      # default page range used in pagination control
+    default_options:
+        page_name: page                # page query parameter name
+        sort_field_name: sort          # sort field query parameter name
+        sort_direction_name: direction # sort direction query parameter name
+        distinct: false                # ensure distinct results, useful when ORM queries are using GROUP BY statements
+
+# MOPA Bootstrap Bundle config
+mopa_bootstrap:
+    form:
+        show_legend: false
+        render_required_asterisk: true
+        render_optional_text: false
+
+# Stof Doctrine Extensions Bundle config
+stof_doctrine_extensions:
+    default_locale: ru
+    orm:
+        default:
+            tree: true
+            sortable: true
+            sluggable: true
+            timestampable: true
+
+# FOS User Bundle config
+fos_user:
+    db_driver: orm
+    firewall_name: main
+    user_class: NS\UserBundle\Entity\User
+
+# Swiftmailer config
+swiftmailer:
+    transport: %mailer_transport%
+    host:      %mailer_host%
+    username:  %mailer_user%
+    password:  %mailer_password%
+    spool:     { type: memory }
+
+# Doctrine config
+doctrine:
+    dbal:
+        driver:   %database_driver%
+        host:     %database_host%
+        port:     %database_port%
+        dbname:   %database_name%
+        user:     %database_user%
+        password: %database_password%
+        charset:  UTF8
+        options:
+            1002: "SET NAMES UTF8"
+
+    orm:
+        auto_generate_proxy_classes: %kernel.debug%
+        entity_managers:
+            default:
+                auto_mapping: true
+                mappings:
+                    gedmo_tree:
+                        type: annotation
+                        prefix: Gedmo\Tree\Entity
+                        dir: "%kernel.root_dir%/../vendor/gedmo/doctrine-extensions/lib/Gedmo/Tree/Entity"
+                        alias: GedmoTree
+                        is_bundle: false
+
+# Twig config
+twig:
+    debug:            %kernel.debug%
+    strict_variables: %kernel.debug%
+    form:
+        resources:
+            - 'NSAdminBundle:Form:fields.html.twig'
