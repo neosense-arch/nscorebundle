@@ -41,6 +41,7 @@
         "symfony/dom-crawler": "2.4.*",
         "twbs/bootstrap": "2.3.*",
         "trsteel/ckeditor-bundle": "1.4.*",
+        "helios-ag/fm-elfinder-bundle": "1.4.*",
 
         "neosense/admin-bundle": "1.3.*",
         "neosense/cache-bundle": "1.1.*",
