@@ -1,12 +1,12 @@
 elfinder:
     resource: "@FMElfinderBundle/Resources/config/routing.yml"
 
-ns_cms:
-    resource: "@NSCmsBundle/Resources/config/routing.yml"
-    prefix:   /
-
 ns_admin:
     resource: "@NSAdminBundle/Resources/config/routing.yml"
+    prefix:   /
+
+ns_cms:
+    resource: "@NSCmsBundle/Resources/config/routing.yml"
     prefix:   /
 
 ns_catalog:
