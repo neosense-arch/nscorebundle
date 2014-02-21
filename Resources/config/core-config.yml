@@ -141,3 +141,7 @@ twig:
     form:
         resources:
             - 'NSAdminBundle:Form:fields.html.twig'
+
+# Genemu Form config
+genemu_form:
+    select2: ~

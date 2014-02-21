@@ -3,6 +3,7 @@
 namespace NS\CoreBundle;
 
 use FM\ElfinderBundle\FMElfinderBundle;
+use Genemu\Bundle\FormBundle\GenemuFormBundle;
 use NS\AdminBundle\NSAdminBundle;
 use NS\CacheBundle\NSCacheBundle;
 use NS\CatalogBundle\NSCatalogBundle;
@@ -60,6 +61,7 @@ abstract class CoreKernel extends Kernel
 			new \Liuggio\ExcelBundle\LiuggioExcelBundle(),
             new TrsteelCkeditorBundle(),
             new FMElfinderBundle(),
+            new GenemuFormBundle(),
 
 			new NSAdminBundle(),
 			new NSCacheBundle(),
