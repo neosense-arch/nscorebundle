@@ -28,3 +28,43 @@
     - web/upload/images
 
 5. Replace mainItemsBlock and newItemsBlock with itemsBlock using external SQL Editor
+
+6. Change MySQL table engines to InnoDB:
+    ALTER TABLE `fos_user` ENGINE = InnoDB ;
+    ALTER TABLE `ns_catalog_catalogs` ENGINE = InnoDB ;
+    ALTER TABLE `ns_catalog_categories` ENGINE = InnoDB ;
+    ALTER TABLE `ns_catalog_fields` ENGINE = InnoDB ;
+    ALTER TABLE `ns_catalog_items` ENGINE = InnoDB ;
+    ALTER TABLE `ns_catalog_settings` ENGINE = InnoDB ;
+    ALTER TABLE `ns_catalog_types` ENGINE = InnoDB ;
+    ALTER TABLE `ns_catalog_values` ENGINE = InnoDB ;
+    ALTER TABLE `ns_cms_blocks` ENGINE = InnoDB ;
+    ALTER TABLE `ns_cms_pages` ENGINE = InnoDB ;
+    ALTER TABLE `ns_documents_categories` ENGINE = InnoDB ;
+    ALTER TABLE `ns_documents_documents` ENGINE = InnoDB ;
+    ALTER TABLE `ns_news_item` ENGINE = InnoDB ;
+    ALTER TABLE `ns_page` ENGINE = InnoDB ;
+    ALTER TABLE `ns_property` ENGINE = InnoDB ;
+    ALTER TABLE `ns_shop_order_items` ENGINE = InnoDB ;
+    ALTER TABLE `ns_shop_orders` ENGINE = InnoDB ;
+
+7. In case of missing foreign keys you need to fix some item relations data. Set null these missing categories first:
+    This will return list of missing category ids:
+        SELECT DISTINCT category_id FROM ns_catalog_items WHERE category_id NOT IN (
+            SELECT DISTINCT category_id FROM ns_catalog_items i
+            JOIN ns_catalog_categories c ON c.id = category_id
+        );
+    Now set them to NULL:
+        i.e. UPDATE ns_catalog_items SET category_id = NULL WHERE category_id IN (358, 363);
+
+    This will return list of missing orders:
+        SELECT DISTINCT order_id FROM ns_shop_order_items WHERE order_id NOT IN (
+            SELECT DISTINCT order_id FROM ns_shop_order_items i
+            JOIN ns_shop_orders c ON c.id = order_id
+        );
+    Now removing broken order items:
+        DELETE FROM ns_shop_order_items WHERE order_id IN (26,27,33,34)
+
+    The same thing with other broken constraints.
+
+    Now repeat doctrine:schema:update --force
