@@ -12,12 +12,23 @@ security:
 
     firewalls:
         main:
-            pattern: ^/
+            pattern: ^/admin
             form_login:
                 provider: fos_userbundle
                 csrf_provider: form.csrf_provider
                 login_path: fos_user_security_login
                 check_path: fos_user_security_check
+            logout:
+                path: fos_user_security_logout
+                target: /
+            anonymous:    true
+        front:
+            pattern: ^/
+            form_login:
+                provider: fos_userbundle
+                csrf_provider: form.csrf_provider
+                login_path: ns_user_login
+                check_path: ns_user_login_check
             logout:
                 path: fos_user_security_logout
                 target: /

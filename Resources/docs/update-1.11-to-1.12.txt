@@ -26,3 +26,5 @@
 4. Create directories (for ElFinder):
     - web/upload/documents
     - web/upload/images
+
+5. Replace mainItemsBlock and newItemsBlock with itemsBlock using external SQL Editor

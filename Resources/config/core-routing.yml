@@ -21,6 +21,10 @@ ns_feedback:
     resource: "@NSFeedbackBundle/Resources/config/routing.yml"
     prefix:   /
 
+ns_user:
+    resource: "@NSUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
 fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
     prefix:   /admin
