@@ -68,3 +68,6 @@
     The same thing with other broken constraints.
 
     Now repeat doctrine:schema:update --force
+
+8. Change all user canonical names to emails:
+    UPDATE fos_user SET username = email, username_canonical = email WHERE id > 0
