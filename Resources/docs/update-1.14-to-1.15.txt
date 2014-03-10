@@ -1,0 +1,1 @@
+1. Add "NSAdminBundle" to your ns_admin.bundles config section (app/config/config.yml)
