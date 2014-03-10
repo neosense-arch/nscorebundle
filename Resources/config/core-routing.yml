@@ -14,6 +14,10 @@ ns_catalog:
     resource: "@NSCatalogBundle/Resources/config/routing.yml"
     prefix:   /
 
+ns_gallery:
+    resource: "@NSGalleryBundle/Resources/config/routing.yml"
+    prefix:   /
+
 ns_shop:
     resource: "@NSShopBundle/Resources/config/routing.yml"
     prefix:   /
