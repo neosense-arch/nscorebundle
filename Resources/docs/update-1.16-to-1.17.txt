@@ -1,0 +1,4 @@
+1. Rename gallery bundle blocks:
+    UPDATE ns_cms_blocks SET typeName = 'NSGalleryBundle:Blocks:galleriesBlock' WHERE typeName = 'NSGalleryBundle:Blocks:galleries' AND id > 1;
+    UPDATE ns_cms_blocks SET typeName = 'NSGalleryBundle:Blocks:photosBlock' WHERE typeName = 'NSGalleryBundle:Blocks:photos' AND id > 1;
+    UPDATE ns_cms_blocks SET typeName = 'NSGalleryBundle:Blocks:photoBlock' WHERE typeName = 'NSGalleryBundle:Blocks:photo' AND id > 1;
