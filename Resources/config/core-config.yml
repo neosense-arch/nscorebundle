@@ -20,7 +20,7 @@ framework:
 assetic:
     debug:          %kernel.debug%
     use_controller: true
-    bundles:        [ NSAdminBundle, NSCmsBundle, MopaBootstrapBundle, FMElfinderBundle ]
+    bundles:        [ NSAdminBundle, NSCmsBundle, NSCatalogBundle, MopaBootstrapBundle, FMElfinderBundle ]
     read_from:      "%kernel.root_dir%/../web"
     write_to:       "%kernel.root_dir%/../web/assetic"
     filters:
