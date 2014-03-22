@@ -46,11 +46,11 @@
 
         "neosense/admin-bundle": "1.7.*",
         "neosense/cache-bundle": "1.2.*",
-        "neosense/catalog-bundle": "1.9.*",
+        "neosense/catalog-bundle": "1.10.*",
         "neosense/cms-bundle": "1.13.*",
         "neosense/deploy-bundle": "1.1.*",
         "neosense/documents-bundle": "1.1.*",
-        "neosense/feedback-bundle": "1.1.*",
+        "neosense/feedback-bundle": "1.2.*",
         "neosense/gallery-bundle": "1.2.*",
         "neosense/news-bundle": "1.1.*",
         "neosense/pages-bundle": "1.1.*",
