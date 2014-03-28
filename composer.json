@@ -36,7 +36,6 @@
         "knplabs/knp-paginator-bundle": "2.4.*",
         "liuggio/excelbundle": "1.0.*",
         "mopa/bootstrap-bundle": "2.2.*@alpha",
-        "stfalcon/tinymce-bundle": "0.2.*",
         "stof/doctrine-extensions-bundle": "1.1.*",
         "symfony/dom-crawler": "2.4.*",
         "twbs/bootstrap": "2.3.*",
