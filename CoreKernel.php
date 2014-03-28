@@ -56,7 +56,6 @@ abstract class CoreKernel extends Kernel
 			new \Knp\Bundle\MenuBundle\KnpMenuBundle(),
 			new \Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 			new \Mopa\Bundle\BootstrapBundle\MopaBootstrapBundle(),
-			new \Stfalcon\Bundle\TinymceBundle\StfalconTinymceBundle(),
 			new \Stof\DoctrineExtensionsBundle\StofDoctrineExtensionsBundle(),
 			new \Liuggio\ExcelBundle\LiuggioExcelBundle(),
             new TrsteelCkeditorBundle(),
