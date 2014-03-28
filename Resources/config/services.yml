@@ -8,8 +8,11 @@ services:
         class: %ns_core.service.version.class%
         arguments: [%ns_core.service.version.file%]
 
+    ns_core.twig.extension.cdn:
+        class: 'NS\CoreBundle\Twig\Extension\CdnExtension'
+        tags: [{ name: twig.extension }]
+
     ns_core.twig.extension.version:
         class: %ns_core.twig.extension.version.class%
         arguments: [ @ns_core.service.version ]
-        tags:
-            - { name: twig.extension }
+        tags: [{ name: twig.extension }]
