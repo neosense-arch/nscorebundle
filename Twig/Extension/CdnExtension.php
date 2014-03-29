@@ -31,6 +31,8 @@ class CdnExtension extends \Twig_Extension
             // Twitter bootstrap
             'bootstrap-2-css'      => '<link rel="stylesheet" href="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/css/bootstrap-combined.min.css" />',
             'bootstrap-2-js'       => '<script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>',
+            'bootstrap-3-css'      => '<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">',
+            'bootstrap-3-js'       => '<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>',
 
             // jQuery
             'jquery'               => 'jquery-1.11-js',
