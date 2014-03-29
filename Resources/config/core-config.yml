@@ -1,6 +1,5 @@
 imports:
     - { resource: 'core-security.yml' }
-    - { resource: 'core-legacy.yml' }
 
 # Framework config
 framework:
