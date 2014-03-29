@@ -4,6 +4,10 @@ parameters:
     ns_core.twig.extension.version.class: 'NS\CoreBundle\Twig\Extension\VersionExtension'
 
 services:
+    ns_core.service.changelog:
+        class: 'NS\CoreBundle\Service\ChangelogService'
+        arguments: ['%kernel.root_dir%/../vendor/neosense/core-bundle/NS/CoreBundle/Resources/changelog.yml']
+
     ns_core.service.version:
         class: %ns_core.service.version.class%
         arguments: [%ns_core.service.version.file%]
