@@ -43,10 +43,10 @@
         "helios-ag/fm-elfinder-bundle": "1.4.*",
         "genemu/form-bundle": "2.2.*",
 
-        "neosense/admin-bundle": "1.10.*",
+        "neosense/admin-bundle": "1.11.*",
         "neosense/cache-bundle": "1.2.*",
-        "neosense/catalog-bundle": "1.12.*",
-        "neosense/cms-bundle": "1.13.*",
+        "neosense/catalog-bundle": "1.13.*",
+        "neosense/cms-bundle": "1.14.*",
         "neosense/deploy-bundle": "1.1.*",
         "neosense/documents-bundle": "1.1.*",
         "neosense/feedback-bundle": "1.2.*",
@@ -57,7 +57,7 @@
         "neosense/routing-bundle": "1.2.*",
         "neosense/search-bundle": "1.2.*",
         "neosense/seo-bundle": "1.0.*",
-        "neosense/shop-bundle": "1.4.*",
+        "neosense/shop-bundle": "1.5.*",
         "neosense/user-bundle": "1.5.*"
     },
     "autoload": {
