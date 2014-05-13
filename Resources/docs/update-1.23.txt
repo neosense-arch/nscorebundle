@@ -2,3 +2,7 @@
     Copy vendor/neosense/admin-bundle/NS/AdminBundle/Resources/config/ns_admin.manifest.yml for example
 
 2. Implement CoreBundle interface in all your user bundle classes
+
+3. Add this to your .gitignore:
+    /app/backup/
+
