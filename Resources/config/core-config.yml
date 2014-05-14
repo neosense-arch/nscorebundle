@@ -82,6 +82,7 @@ mopa_bootstrap:
         show_legend: false
         render_required_asterisk: true
         render_optional_text: false
+        checkbox_label: 'widget'
 
 # Stof Doctrine Extensions Bundle config
 stof_doctrine_extensions:
