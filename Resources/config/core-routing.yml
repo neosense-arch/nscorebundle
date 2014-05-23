@@ -41,3 +41,10 @@ ns_routing:
 _imagine:
     resource: .
     type:     imagine
+
+remove_trailing_slash:
+    path: /{url}
+    defaults: { _controller: NSCoreBundle:Redirecting:removeTrailingSlash }
+    requirements:
+        url: .*/$
+        _method: GET
