@@ -68,7 +68,6 @@ abstract class CoreKernel extends Kernel
 			new NSCoreBundle(),
 			new NSCmsBundle(),
 			new NSDeployBundle(),
-			new NSDocumentsBundle(),
 			new NSFeedbackBundle(),
 			new NSGalleryBundle(),
 			new NSNewsBundle(),
