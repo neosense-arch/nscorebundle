@@ -37,7 +37,6 @@
         "liuggio/excelbundle": "1.0.*",
         "mopa/bootstrap-bundle": "2.2.*@alpha",
         "stof/doctrine-extensions-bundle": "1.1.*",
-        "symfony/dom-crawler": "2.4.*",
         "twbs/bootstrap": "2.3.*",
         "trsteel/ckeditor-bundle": "1.4.*",
         "helios-ag/fm-elfinder-bundle": "1.4.*",
