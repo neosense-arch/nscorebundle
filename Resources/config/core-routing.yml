@@ -2,10 +2,6 @@ elfinder:
     resource: "@FMElfinderBundle/Resources/config/routing.yml"
     prefix:   /admin
 
-ns_gallery:
-    resource: "@NSGalleryBundle/Resources/config/routing.yml"
-    prefix:   /
-
 ns_admin:
     resource: "@NSAdminBundle/Resources/config/routing.yml"
     prefix:   /
