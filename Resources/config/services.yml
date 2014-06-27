@@ -19,7 +19,12 @@ services:
         class: 'NS\CoreBundle\Twig\Extension\CdnExtension'
         tags: [{ name: twig.extension }]
 
+    ns_core.twig.extension.filesize:
+        class: 'NS\CoreBundle\Twig\Extension\FileSizeExtension'
+        tags: [{ name: twig.extension }]
+
     ns_core.twig.extension.version:
         class: %ns_core.twig.extension.version.class%
         arguments: [ @ns_core.service.version ]
         tags: [{ name: twig.extension }]
+
