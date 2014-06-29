@@ -1,0 +1,18 @@
+{% extends 'NSCoreBundle:Install:install.html.twig' %}
+
+{% block content %}
+    <h1>Установка системы завершена</h1>
+
+    <div class="row" style="margin-top: 40px;">
+        <div class="col-md-6">
+            <a href="{{ url('ns_cms_main') }}" class="btn btn-default btn-lg btn-block">
+                Главная страница
+            </a>
+        </div>
+        <div class="col-md-6">
+            <a href="{{ url('ns_admin_index') }}" class="btn btn-default btn-lg btn-block">
+                Административная панель
+            </a>
+        </div>
+    </div>
+{% endblock %}

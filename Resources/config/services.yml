@@ -2,11 +2,21 @@ parameters:
     ns_core.service.version.class:        'NS\CoreBundle\Service\VersionService'
     ns_core.service.version.file:         'version.txt'
     ns_core.twig.extension.version.class: 'NS\CoreBundle\Twig\Extension\VersionExtension'
+    ns_core.install.restore.file: '%kernel.root_dir%/.restore.sql'
 
 services:
+    ns_core.event.install_listener:
+        class: 'NS\CoreBundle\Event\InstallListener'
+        arguments: [@ns_core.service.install]
+        tags: [{ name: kernel.event_listener, event: kernel.request, method: onKernelRequest }]
+
     ns_core.service.changelog:
         class: 'NS\CoreBundle\Service\ChangelogService'
         arguments: ['%kernel.root_dir%/../vendor/neosense/core-bundle/NS/CoreBundle/Resources/changelog.yml']
+
+    ns_core.service.install:
+            class: 'NS\CoreBundle\Service\InstallService'
+            arguments: [%kernel.root_dir%, @database_connection, @doctrine.orm.entity_manager, %ns_core.install.restore.file%]
 
     ns_core.service.phpinfo:
         class: 'NS\CoreBundle\Service\PhpinfoService'

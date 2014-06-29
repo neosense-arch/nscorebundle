@@ -30,10 +30,6 @@ fos_user_security:
     resource: "@FOSUserBundle/Resources/config/routing/security.xml"
     prefix:   /admin
 
-ns_routing:
-    resource: .
-    type:     ns_routing_resource
-
 _imagine:
     resource: .
     type:     imagine

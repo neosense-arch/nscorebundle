@@ -1,0 +1,41 @@
+{% extends 'NSCoreBundle:Install:install.html.twig' %}
+
+{% form_theme form 'NSCoreBundle:Install:_form.html.twig' %}
+
+{% block content %}
+    <h1>Установка системы</h1>
+
+    <div class="alert alert-warning">
+        <i class="glyphicon glyphicon-warning-sign"></i>
+        Внимание! Все данные в указанной базе данных будут уничтожены
+    </div>
+
+    {{ form_start(form) }}
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_row(form.database_user) }}
+        </div>
+        <div class="col-md-6">
+            {{ form_row(form.database_password) }}
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-6">
+            {{ form_row(form.database_name) }}
+        </div>
+        <div class="col-md-4">
+            {{ form_row(form.database_host) }}
+        </div>
+        <div class="col-md-2">
+            {{ form_row(form.database_port) }}
+        </div>
+    </div>
+
+    {{ form_rest(form) }}
+
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Установить</button>
+
+    {{ form_end(form) }}
+{% endblock %}

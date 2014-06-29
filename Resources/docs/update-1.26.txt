@@ -1,0 +1,15 @@
+1. GalleryBundle, NewsBundle, PropertiesBundle, RoutingBundle now removed. Check 'em
+2. Move all system files to your web directory (i.e. "web")
+    2.1. Create directory "web/ns"
+    2.2. Move everything ("app", "bin", "src", "vendor", "composer.json", "composer.lock") to "web/ns"
+    2.3. Create ".htaccess" file with contents like: "deny from all"
+    2.4. Check your avalanche params (config.yml)
+        avalanche_imagine:
+            source_root:  %kernel.root_dir%/../..
+            web_root:     %kernel.root_dir%/../..
+    2.5. Check your assetic params (config.yml). Must contain this or nothing (default values):
+        assetic:
+            read_from:      "%kernel.root_dir%/../.."
+            write_to:       "%kernel.root_dir%/../../assetic"
+3. Create installed flag (empty file):
+    web/ns/app/.installed
