@@ -1,0 +1,1 @@
+1. Added ability to reorder items manually. After database scheme update you have to set item positions manually if necessary
