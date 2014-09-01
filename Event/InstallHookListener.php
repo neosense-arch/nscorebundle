@@ -10,7 +10,7 @@ use Symfony\Component\HttpKernel\Event\GetResponseEvent;
  *
  * @package NS\DeployBundle\Event
  */
-class InstallListener
+class InstallHookListener
 {
     /**
      * @var InstallService

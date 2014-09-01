@@ -11,5 +11,8 @@
         assetic:
             read_from:      "%kernel.root_dir%/../.."
             write_to:       "%kernel.root_dir%/../../assetic"
+    2.6. Update app.php and app_dev.php:
+        /../app/bootstrap.php.cache => /ns/app/bootstrap.php.cache,
+        /../app/AppKernel.php       => /ns/app/AppKernel.php
 3. Create installed flag (empty file):
     web/ns/app/.installed

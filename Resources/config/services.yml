@@ -5,8 +5,8 @@ parameters:
     ns_core.install.restore.file: '%kernel.root_dir%/.restore.sql'
 
 services:
-    ns_core.event.install_listener:
-        class: 'NS\CoreBundle\Event\InstallListener'
+    ns_core.event.install_hook_listener:
+        class: 'NS\CoreBundle\Event\InstallHookListener'
         arguments: [@ns_core.service.install]
         tags: [{ name: kernel.event_listener, event: kernel.request, method: onKernelRequest }]
 

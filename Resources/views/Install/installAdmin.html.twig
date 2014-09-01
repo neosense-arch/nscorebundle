@@ -1,0 +1,15 @@
+{% extends 'NSCoreBundle:Install:install.html.twig' %}
+
+{% form_theme form 'NSCoreBundle:Install:_form.html.twig' %}
+
+{% block content %}
+    <h1>Создание учетной записи администратора</h1>
+
+
+    {{ form_start(form) }}
+    {{ form_rest(form) }}
+
+    <button type="submit" class="btn btn-primary btn-lg btn-block">Создать</button>
+
+    {{ form_end(form) }}
+{% endblock %}

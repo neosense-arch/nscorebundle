@@ -2,9 +2,13 @@
 
 namespace NS\CoreBundle\Controller;
 
+use NS\CoreBundle\Event\CoreEvents;
+use NS\CoreBundle\Event\InstallEvent;
+use NS\CoreBundle\Form\Type\AdminType;
 use NS\CoreBundle\Form\Type\DatabaseType;
 use NS\CoreBundle\Service\InstallService;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
@@ -24,6 +28,7 @@ class InstallController extends Controller
         $map = array(
             'updateParameters',
             'installEngine',
+            'createAdmin',
         );
         return call_user_func(array($this, $map[$step]), $request);
     }
@@ -62,7 +67,7 @@ class InstallController extends Controller
      * @return Response
      * @throws \Exception
      */
-    protected function installEngine(Request $request)
+    private function installEngine(Request $request)
     {
         /** @var InstallService $installService */
         $installService = $this->get('ns_core.service.install');
@@ -77,13 +82,53 @@ class InstallController extends Controller
 
         // restoring dump
         if ($installService->hasRestoreDump()) {
-            $installService
-                ->restoreDump()
-                ->clearDump()
-                ->setInstalled();
-            return $this->render('NSCoreBundle:Install:installSuccess.html.twig');
+            $installService->restoreDump()->clearDump();
+            return $this->finishInstall();
         }
 
-        throw new \Exception("Restore dump wasn't found. Full install-from-scratch functionality is not implemented yet");
+        // installing from scratch
+        /** @var EventDispatcherInterface $eventDispatcher */
+        $eventDispatcher = $this->get('event_dispatcher');
+        $eventDispatcher->dispatch(CoreEvents::INSTALL);
+
+        return $this->redirect($this->generateUrl('ns_cms_main', array('step' => 2)));
+    }
+
+    /**
+     * @param Request $request
+     * @return Response
+     */
+    private function createAdmin(Request $request)
+    {
+        $form = $this->createForm(new AdminType());
+
+        $form->handleRequest($request);
+        if ($form->isValid()) {
+            $user = $form->getData();
+
+            // creating user
+            $manipulator = $this->get('fos_user.util.user_manipulator');
+            $manipulator->create($user['email'], $user['password'], $user['email'], true, false);
+
+            // adding admin role
+            $manipulator->addRole($user['email'], 'ROLE_ADMIN');
+
+            return $this->finishInstall();
+        }
+
+        return $this->render('NSCoreBundle:Install:installAdmin.html.twig', array(
+            'form' => $form->createView(),
+        ));
+    }
+
+    /**
+     * @return Response
+     */
+    private function finishInstall()
+    {
+        /** @var InstallService $installService */
+        $installService = $this->get('ns_core.service.install');
+        $installService->setInstalled();
+        return $this->render('NSCoreBundle:Install:installSuccess.html.twig');
     }
 }

@@ -13,6 +13,7 @@ use NS\DocumentsBundle\NSDocumentsBundle;
 use NS\FeedbackBundle\NSFeedbackBundle;
 use NS\GalleryBundle\NSGalleryBundle;
 use NS\NewsBundle\NSNewsBundle;
+use NS\ProjectBundle\NSProjectBundle;
 use NS\PropertiesBundle\NSPropertiesBundle;
 use NS\RoutingBundle\NSRoutingBundle;
 use NS\SearchBundle\NSSearchBundle;
@@ -73,6 +74,8 @@ abstract class CoreKernel extends Kernel
             new NSSeoBundle(),
 			new NSShopBundle(),
 			new NSUserBundle(),
+
+            new NSProjectBundle(),
 		);
 
 		if (in_array($this->getEnvironment(), array('dev', 'test'))) {
