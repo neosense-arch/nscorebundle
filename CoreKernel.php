@@ -74,8 +74,6 @@ abstract class CoreKernel extends Kernel
             new NSSeoBundle(),
 			new NSShopBundle(),
 			new NSUserBundle(),
-
-            new NSProjectBundle(),
 		);
 
 		if (in_array($this->getEnvironment(), array('dev', 'test'))) {
