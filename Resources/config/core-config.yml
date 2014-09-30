@@ -30,7 +30,7 @@ trsteel_ckeditor:
     transformers: []
     filebrowser_image_browse_url:
         route: elfinder
-    extra_allowed_content: 'script iframe p div span ul[*](*)'
+    extra_allowed_content: 'script iframe p div h1 h2 h3 h4 span a ul button input[*](*){*}'
 
 # FK ElFinder Bundle config
 fm_elfinder:
