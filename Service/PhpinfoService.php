@@ -48,7 +48,7 @@ class PhpinfoService
     {
         $values = array();
         foreach ($names as $name) {
-            $values[$name] = (ini_get($name)?:'n/a') . ' (' . (get_cfg_var($name)?:'n/a') . ')';
+            $values[$name] = ini_get($name)?:'n/a';
         }
         return $values;
     }
